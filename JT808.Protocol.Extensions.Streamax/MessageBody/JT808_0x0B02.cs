@@ -20,7 +20,10 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         /// 线路编号
         /// </summary>
         public uint GprsId { get; set; }
-
+        /// <summary>
+        /// 到离站类型
+        /// </summary>
+        public byte PointType { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
             throw new NotImplementedException();
