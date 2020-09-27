@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30516.212
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JT808.Protocol.Extensions.Streamax", "JT808.Protocol.Extensions.Streamax\JT808.Protocol.Extensions.Streamax.csproj", "{99F453F9-3F70-4589-B639-4CEC5044A512}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JT808.Protocol.Extensions.Streamax", "JT808.Protocol.Extensions.Streamax\JT808.Protocol.Extensions.Streamax.csproj", "{99F453F9-3F70-4589-B639-4CEC5044A512}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JT808.Protocol.Extensions.Streamax.Test", "JT808.Protocol.Extensions.Streamax.Test\JT808.Protocol.Extensions.Streamax.Test.csproj", "{2B2B38E9-7362-44A5-877D-9923D75D8018}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{99F453F9-3F70-4589-B639-4CEC5044A512}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99F453F9-3F70-4589-B639-4CEC5044A512}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99F453F9-3F70-4589-B639-4CEC5044A512}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B2B38E9-7362-44A5-877D-9923D75D8018}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B2B38E9-7362-44A5-877D-9923D75D8018}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B2B38E9-7362-44A5-877D-9923D75D8018}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B2B38E9-7362-44A5-877D-9923D75D8018}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

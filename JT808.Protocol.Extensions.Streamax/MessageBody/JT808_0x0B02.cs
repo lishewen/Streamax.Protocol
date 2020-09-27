@@ -77,18 +77,6 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         /// 当前乘客数
         /// </summary>
         public ushort PersonCount { get; set; }
-        /// <summary>
-        /// 车门数
-        /// </summary>
-        public byte DoorCount { get; set; }
-        /// <summary>
-        /// 乘客计数项列表
-        /// 长度n*3
-        /// 0:门编号
-        /// 1:上客数
-        /// 2:下客数
-        /// </summary>
-        public byte[] DoorData { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
             JT808_0x0B02 value = new JT808_0x0B02();
@@ -118,17 +106,6 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
             value.PersonCount = reader.ReadUInt16();
             writer.WriteNumber($"[{value.PersonCount.ReadNumber()}]当前乘客数", value.PersonCount);
-            value.DoorCount = reader.ReadByte();
-            writer.WriteNumber($"[{value.DoorCount.ReadNumber()}]车门数", value.DoorCount);
-            writer.WriteStartArray("乘客计数项列表");
-            for (int i = 0; i < value.DoorCount; i++)
-            {
-                writer.WriteStartObject();
-                var idBuffer = reader.ReadArray(3).ToArray();
-                writer.WriteString($"Id{i + 1}", idBuffer.ToHexString());
-                writer.WriteEndObject();
-            }
-            writer.WriteEndArray();
         }
 
         public JT808_0x0B02 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
@@ -147,8 +124,6 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             value.Direction = reader.ReadUInt16();
             value.Time = reader.ReadDateTime6();
             value.PersonCount = reader.ReadUInt16();
-            value.DoorCount = reader.ReadByte();
-            value.DoorData = reader.ReadArray(value.DoorCount * 3).ToArray();
             return value;
         }
 
@@ -167,8 +142,6 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteUInt16(value.Direction);
             writer.WriteDateTime6(value.Time);
             writer.WriteUInt16(value.PersonCount);
-            writer.WriteByte(value.DoorCount);
-            writer.WriteArray(value.DoorData);
         }
     }
 }
