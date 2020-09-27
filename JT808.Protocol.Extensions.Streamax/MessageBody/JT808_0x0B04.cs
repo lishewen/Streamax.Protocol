@@ -104,8 +104,9 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
             value.Reissue = reader.ReadByte();
             writer.WriteNumber($"[{value.Reissue.ReadNumber()}]补发标识", value.Reissue);
-            //value.Additional = reader.ReadString(1024);
-            //writer.WriteString($"[30]附加内容", value.Additional);
+            var virtualHex = reader.ReadVirtualArray(reader.ReadCurrentRemainContentLength());
+            value.Additional = reader.ReadRemainStringContent();
+            writer.WriteString($"[{virtualHex.ToArray().ToHexString()}]附加内容", value.Additional);
         }
 
         public JT808_0x0B04 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
@@ -129,7 +130,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             value.Direction = reader.ReadUInt16();
             value.Time = reader.ReadDateTime6();
             value.Reissue = reader.ReadByte();
-            //value.Additional = reader.ReadString(1024);
+            value.Additional = reader.ReadRemainStringContent();
             return value;
         }
 
