@@ -78,10 +78,18 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteNumber($"[{value.GprsId.ReadNumber()}]线路编号", value.GprsId);
             value.ViolationType = reader.ReadByte();
             writer.WriteNumber($"[{value.ViolationType.ReadNumber()}]违规类型-{Enum.GetName(typeof(ViolationType), value.ViolationType)}", value.ViolationType);
-            value.ViolationValue = reader.ReadUInt16();
-            writer.WriteNumber($"[{value.ViolationValue.ReadNumber()}]违规值", value.ViolationValue);
-            //value.ViolationStandard = reader.ReadUInt16();
-            //writer.WriteNumber($"[{value.ViolationStandard.ReadNumber()}]违规标准", value.ViolationStandard);
+            if (value.ViolationType >= 0x01 && value.ViolationType <= 0x0A)
+            {
+                value.ViolationValue = reader.ReadUInt16();
+                writer.WriteNumber($"[{value.ViolationValue.ReadNumber()}]违规值", value.ViolationValue);
+                value.ViolationStandard = reader.ReadUInt16();
+                writer.WriteNumber($"[{value.ViolationStandard.ReadNumber()}]违规标准", value.ViolationStandard);
+            }
+            else if (value.ViolationType == 0x0C)
+            {
+                value.ViolationValue = reader.ReadUInt16();
+                writer.WriteNumber($"[{value.ViolationValue.ReadNumber()}]违规值", value.ViolationValue);
+            }
             value.Latitude = reader.ReadUInt32();
             writer.WriteNumber($"[{value.Latitude.ReadNumber()}]纬度", value.Latitude);
             value.Longitude = reader.ReadUInt32();
@@ -105,8 +113,15 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             JT808_0x0B04 value = new JT808_0x0B04();
             value.GprsId = reader.ReadUInt32();
             value.ViolationType = reader.ReadByte();
-            value.ViolationValue = reader.ReadUInt16();
-            //value.ViolationStandard = reader.ReadUInt16();
+            if (value.ViolationType >= 0x01 && value.ViolationType <= 0x0A)
+            {
+                value.ViolationValue = reader.ReadUInt16();
+                value.ViolationStandard = reader.ReadUInt16();
+            }
+            else if (value.ViolationType == 0x0C)
+            {
+                value.ViolationValue = reader.ReadUInt16();
+            }
             value.Latitude = reader.ReadUInt32();
             value.Longitude = reader.ReadUInt32();
             value.Altitude = reader.ReadUInt16();
