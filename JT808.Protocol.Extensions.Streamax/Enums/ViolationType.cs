@@ -17,6 +17,7 @@ namespace JT808.Protocol.Extensions.Streamax.Enums
         疲劳驾驶 = 0x09,
         超载 = 0x0A,
         越界行驶 = 0x0B,
-        报告当前行驶状况 = 0x0C
+        报告当前行驶状况 = 0x0C,
+        超速 = 0x0D
     }
 }

@@ -78,7 +78,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteNumber($"[{value.GprsId.ReadNumber()}]线路编号", value.GprsId);
             value.ViolationType = reader.ReadByte();
             writer.WriteNumber($"[{value.ViolationType.ReadNumber()}]违规类型-{Enum.GetName(typeof(ViolationType), value.ViolationType)}", value.ViolationType);
-            if (value.ViolationType >= 0x01 && value.ViolationType <= 0x0A)
+            if ((value.ViolationType >= 0x01 && value.ViolationType <= 0x0A) || value.ViolationType == 0x0D)
             {
                 value.ViolationValue = reader.ReadUInt16();
                 writer.WriteNumber($"[{value.ViolationValue.ReadNumber()}]违规值", value.ViolationValue);

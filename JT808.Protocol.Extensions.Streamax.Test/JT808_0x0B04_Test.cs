@@ -18,7 +18,7 @@ namespace JT808.Protocol.Extensions.Streamax.Test
         [Fact]
         public void Json()
         {
-            var json = JT808Serializer.Analyze("7e0b0400270000000007240e3f000000f00112c011300166397806a1a5b7001f01d600b120092706012500b3accbd9d0d0b3b500f57e".ToHexBytes());
+            var json = JT808Serializer.Analyze("7E0B040028000000000102040D00000BFE0D125C11300165CC3406A14930002301900134200928092712007B2244223A32307D010A00327E".ToHexBytes());
         }
     }
 }
