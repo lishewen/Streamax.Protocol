@@ -1,0 +1,355 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>JT808.Protocol.Extensions.Streamax</name>
+    </assembly>
+    <members>
+        <member name="T:JT808.Protocol.Extensions.Streamax.Enums.AttendanceType">
+            <summary>
+            考勤方式
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.Enums.AttendType">
+            <summary>
+            考勤类型
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.Enums.FixedPointType">
+            <summary>
+            定点类型
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.Enums.TrafficType">
+            <summary>
+            业务类型
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0B01">
+            <summary>
+            运营登记
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0B02">
+            <summary>
+            到离站信息上报
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0x16">
+            <summary>
+            线路编码
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0x16.GprsId">
+            <summary>
+            线路编号
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0x17">
+            <summary>
+            业务类型
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0x17.TrafficType">
+            <summary>
+            业务类型
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B01">
+            <summary>
+            运营登记
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B01.GprsId">
+            <summary>
+            线路编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B01.WorkerId">
+            <summary>
+            员工编号
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02">
+            <summary>
+            到离站信息上报
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.GprsId">
+            <summary>
+            线路编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.PointType">
+            <summary>
+            到离站类型
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.TrafficType">
+            <summary>
+            业务类型
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.StationId">
+            <summary>
+            场站站点编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.StationNo">
+            <summary>
+            车站序号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.Tag">
+            <summary>
+            标志字段
+            0位：0：自动触发；1：手动触发
+            1位：0：首次发送；1：补发
+            2位：0：未定位；1：定位
+            3-7位：保留
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.Latitude">
+            <summary>
+            纬度
+            以度位单位的纬度值乘以10^6，精确到百万分之一度
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.Longitude">
+            <summary>
+            经度
+            以度位单位的经度值乘以10^6，精确到百万分之一度
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.Altitude">
+            <summary>
+            高程
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.Speed">
+            <summary>
+            车速
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.Time">
+            <summary>
+            时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.PersonCount">
+            <summary>
+            当前乘客数
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03">
+            <summary>
+            进出定点信息上报
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03.GprsId">
+            <summary>
+            线路编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03.IOType">
+            <summary>
+            进出类型
+            1:进；2:出
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03.TrafficType">
+            <summary>
+            业务类型
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03.StationId">
+            <summary>
+            场站站点编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03.Tag">
+            <summary>
+            标志字段
+            0位：0：自动触发；1：手动触发
+            1位：0：首次发送；1：补发
+            2位：0：未定位；1：定位
+            3-7位：保留
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03.Latitude">
+            <summary>
+            纬度
+            以度位单位的纬度值乘以10^6，精确到百万分之一度
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03.Longitude">
+            <summary>
+            经度
+            以度位单位的经度值乘以10^6，精确到百万分之一度
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03.Altitude">
+            <summary>
+            高程
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03.Speed">
+            <summary>
+            车速
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03.Time">
+            <summary>
+            时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03.FixedPointType">
+            <summary>
+            定点类型
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04">
+            <summary>
+            违规信息上报
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04.GprsId">
+            <summary>
+            线路编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04.ViolationType">
+            <summary>
+            违规类型
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04.ViolationValue">
+            <summary>
+            违规值
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04.ViolationStandard">
+            <summary>
+            违规标准
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04.Latitude">
+            <summary>
+            纬度
+            以度位单位的纬度值乘以10^6，精确到百万分之一度
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04.Longitude">
+            <summary>
+            经度
+            以度位单位的经度值乘以10^6，精确到百万分之一度
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04.Altitude">
+            <summary>
+            高程
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04.Speed">
+            <summary>
+            车速
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04.Direction">
+            <summary>
+            方向
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04.Time">
+            <summary>
+            时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04.Reissue">
+            <summary>
+            补发标识
+            1为补发，0为正常
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04.Additional">
+            <summary>
+            附加内容
+            最长1024，对违规信息的文本描述
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B05">
+            <summary>
+            考勤
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B05.GprsId">
+            <summary>
+            线路编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B05.WorkerId">
+            <summary>
+            员工编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B05.Time">
+            <summary>
+            时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B05.AttendType">
+            <summary>
+            考勤类型
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B05.AttendanceType">
+            <summary>
+            考勤方式
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B09">
+            <summary>
+            业务请求
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B09.GprsId">
+            <summary>
+            线路编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B09.WorkerId">
+            <summary>
+            员工编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B09.RequestCode">
+            <summary>
+            业务请求代码
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B09.Time">
+            <summary>
+            时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+    </members>
+</doc>
