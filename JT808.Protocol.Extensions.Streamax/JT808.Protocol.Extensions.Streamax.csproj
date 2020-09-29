@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
 	  <Copyright>Copyright 算神工作室 2020.</Copyright>
 	  <Authors>算神</Authors>
 	  <PackageId>JT808.Protocol.Extensions.Streamax</PackageId>
