@@ -5,3 +5,18 @@
 | Package Name          | Version                                            | Downloads                                           |
 | --------------------- | -------------------------------------------------- | --------------------------------------------------- |
 | Install-Package JT808.Protocol.Extensions.Streamax | ![JT808.Protocol.Extensions.Streamax](https://img.shields.io/nuget/v/JT808.Protocol.Extensions.Streamax.svg) | ![JT808.Protocol.Extensions.Streamax](https://img.shields.io/nuget/dt/JT808.Protocol.Extensions.Streamax.svg) |
+
+### JT808扩展协议消息对照表
+
+| 序号  | 消息ID | 完成情况 | 测试情况 | 消息体名称 |
+| :---: | :---: | :---: | :---: | :---:|
+| 1 | 0x0B02 | √ | √ | 到离站信息上报 |
+| 2 | 0x0B04 | √ | √ | 违规信息上报 |
+
+### 使用方法
+
+```csharp
+IServiceCollection serviceDescriptors = new ServiceCollection();
+serviceDescriptors.AddJT808Configure()
+                  .AddStreamaxConfigure();
+```
