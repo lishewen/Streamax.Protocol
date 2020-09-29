@@ -324,6 +324,18 @@
             考勤方式
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B06">
+            <summary>
+            校时请求
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B06.Time">
+            <summary>
+            时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B09">
             <summary>
             业务请求
@@ -345,6 +357,18 @@
             </summary>
         </member>
         <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B09.Time">
+            <summary>
+            时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B06">
+            <summary>
+            校时应答
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B06.Time">
             <summary>
             时间
             YYMMDDhhmmss
