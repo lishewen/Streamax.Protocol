@@ -1,12 +1,12 @@
 # Streamax.Protocol
-锐明808扩展协议
+锐明808公交业务扩展协议
 ## NuGet安装
 
 | Package Name          | Version                                            | Downloads                                           |
 | --------------------- | -------------------------------------------------- | --------------------------------------------------- |
 | Install-Package JT808.Protocol.Extensions.Streamax | ![JT808.Protocol.Extensions.Streamax](https://img.shields.io/nuget/v/JT808.Protocol.Extensions.Streamax.svg) | ![JT808.Protocol.Extensions.Streamax](https://img.shields.io/nuget/dt/JT808.Protocol.Extensions.Streamax.svg) |
 
-### JT808扩展协议消息对照表
+### 锐明JT808公交业务扩展协议消息对照表
 
 | 序号  | 消息ID | 完成情况 | 测试情况 | 消息体名称 |
 | :---: | :---: | :---: | :---: | :---:|
