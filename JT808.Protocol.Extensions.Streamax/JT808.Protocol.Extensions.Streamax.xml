@@ -19,6 +19,11 @@
             定点类型
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.Enums.RegistrationType">
+            <summary>
+            业务登记类型
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.Enums.TrafficType">
             <summary>
             业务类型
@@ -351,6 +356,33 @@
         <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B07.WorkerId">
             <summary>
             员工编号
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B08">
+            <summary>
+            业务登记
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B08.GprsId">
+            <summary>
+            线路编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B08.WorkerId">
+            <summary>
+            员工编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B08.RegistrationType">
+            <summary>
+            业务登记类型
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B08.Time">
+            <summary>
+            时间
+            YYMMDDhhmmss
+            BCD[6]
             </summary>
         </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B09">
