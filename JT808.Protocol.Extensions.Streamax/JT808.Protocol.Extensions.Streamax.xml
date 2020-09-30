@@ -336,6 +336,23 @@
             BCD[6]
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B07">
+            <summary>
+            行车计划请求
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B07.WorkDate">
+            <summary>
+            营运日期
+            BCD[3]
+            计划的执行日期，YY-MM-DD
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B07.WorkerId">
+            <summary>
+            员工编号
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B09">
             <summary>
             业务请求
