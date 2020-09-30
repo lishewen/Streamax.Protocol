@@ -363,6 +363,38 @@
             BCD[6]
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0B">
+            <summary>
+            设备故障上报
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0B.DeviceType">
+            <summary>
+            设备类型
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0B.DeviceAddress">
+            <summary>
+            设备地址
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0B.DeviceVersion">
+            <summary>
+            设备版本
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0B.DeviceErrorCode">
+            <summary>
+            故障编码
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0B.Time">
+            <summary>
+            时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B06">
             <summary>
             校时应答
