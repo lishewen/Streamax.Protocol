@@ -39,6 +39,26 @@
             到离站信息上报
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0x15">
+            <summary>
+            异常驾驶行为报警详细描述
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0x15.ExceptionType">
+             <summary>
+             异常驾驶行为类型
+             按位设置：0表示不具备，1表示具备
+             bit0：1，疲劳；
+             bit1：1，打电话；
+            bit2：1，抽烟
+             </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0x15.Fatigue">
+            <summary>
+            疲劳程度
+            疲劳程度用0～100表示
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0x16">
             <summary>
             线路编码
