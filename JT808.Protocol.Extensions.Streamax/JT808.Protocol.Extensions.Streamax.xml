@@ -39,6 +39,16 @@
             到离站信息上报
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0x14">
+            <summary>
+            视频相关报警
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0x14.AlarmTag">
+            <summary>
+            视频报警标志位
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0x15">
             <summary>
             异常驾驶行为报警详细描述
