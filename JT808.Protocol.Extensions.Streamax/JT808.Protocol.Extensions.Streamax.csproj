@@ -18,7 +18,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="JT808" Version="2.2.12" />
+    <PackageReference Include="JT808" Version="2.2.13" />
   </ItemGroup>
 
 </Project>
