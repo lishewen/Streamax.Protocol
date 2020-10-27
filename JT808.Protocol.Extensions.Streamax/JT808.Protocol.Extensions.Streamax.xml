@@ -474,6 +474,27 @@
             BCD[6]
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B02">
+            <summary>
+            业务变更指令
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B02.GprsId">
+            <summary>
+            线路编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B02.TrafficType">
+            <summary>
+            业务类型
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B02.Additional">
+            <summary>
+            附加内容
+            最长1024，对违规信息的文本描述
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B06">
             <summary>
             校时应答
