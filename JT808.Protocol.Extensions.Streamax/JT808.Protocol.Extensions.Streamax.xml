@@ -507,5 +507,30 @@
             BCD[6]
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B0A">
+            <summary>
+            升级通知
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B0A.IPAddress">
+            <summary>
+            IP地址
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B0A.Port">
+            <summary>
+            端口号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B0A.UserName">
+            <summary>
+            用户名
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B0A.Password">
+            <summary>
+            密码
+            </summary>
+        </member>
     </members>
 </doc>
