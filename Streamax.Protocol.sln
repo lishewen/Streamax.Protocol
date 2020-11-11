@@ -5,7 +5,12 @@ VisualStudioVersion = 16.0.30516.212
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JT808.Protocol.Extensions.Streamax", "JT808.Protocol.Extensions.Streamax\JT808.Protocol.Extensions.Streamax.csproj", "{99F453F9-3F70-4589-B639-4CEC5044A512}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JT808.Protocol.Extensions.Streamax.Test", "JT808.Protocol.Extensions.Streamax.Test\JT808.Protocol.Extensions.Streamax.Test.csproj", "{2B2B38E9-7362-44A5-877D-9923D75D8018}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JT808.Protocol.Extensions.Streamax.Test", "JT808.Protocol.Extensions.Streamax.Test\JT808.Protocol.Extensions.Streamax.Test.csproj", "{2B2B38E9-7362-44A5-877D-9923D75D8018}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{F18D1174-FA81-464E-87B5-2ABDF8A33EDE}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
