@@ -29,6 +29,11 @@
             业务类型
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.Enums.UpdateResultCode">
+            <summary>
+            升级结果代码
+            </summary>
+        </member>
         <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0B01">
             <summary>
             运营登记
@@ -440,6 +445,34 @@
             时间
             YYMMDDhhmmss
             BCD[6]
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0A">
+            <summary>
+            升级结果上报
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0A.GprsId">
+            <summary>
+            线路编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0A.UpdateResultCode">
+            <summary>
+            升级结果代码
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0A.Time">
+            <summary>
+            时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0A.UpdateFile">
+            <summary>
+            升级文件
+            最长1024
             </summary>
         </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0B">
