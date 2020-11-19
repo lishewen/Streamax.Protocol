@@ -14,6 +14,11 @@
             考勤类型
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.Enums.DispatchType">
+            <summary>
+            调度类型
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.Enums.FixedPointType">
             <summary>
             定点类型
@@ -503,6 +508,107 @@
         <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0B.Time">
             <summary>
             时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01">
+            <summary>
+            发车通知
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.GprsId">
+            <summary>
+            线路编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.GuideBoard">
+            <summary>
+            路牌
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.TrainNumber">
+            <summary>
+            车次编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.SelfId">
+            <summary>
+            车辆编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.TrafficType">
+            <summary>
+            业务类型
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.DispatchType">
+            <summary>
+            调度类型
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.DriverId">
+            <summary>
+            驾驶员编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.DriverName">
+            <summary>
+            驾驶员姓名
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.AttendantId1">
+            <summary>
+            乘务员1编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.AttendantId2">
+            <summary>
+            乘务员2编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.StartTime">
+            <summary>
+            起始时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.EndTime">
+            <summary>
+            终止时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.StartStationId">
+            <summary>
+            起始站点编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.StartStationName">
+            <summary>
+            起始场站车站名称
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.EndStationId">
+            <summary>
+            终止站点编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.EndStationName">
+            <summary>
+            终止场站车站名称
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.Additional">
+            <summary>
+            附加内容
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.Time">
+            <summary>
+            发送通知的时间
             YYMMDDhhmmss
             BCD[6]
             </summary>
