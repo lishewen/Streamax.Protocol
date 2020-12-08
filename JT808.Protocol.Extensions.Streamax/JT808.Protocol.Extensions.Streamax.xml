@@ -646,6 +646,118 @@
             BCD[6]
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09">
+            <summary>
+            业务请求应答
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.Serial">
+            <summary>
+            流水号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.Response">
+            <summary>
+            业务请求结果
+            1:同意，0:不同意
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.Time">
+            <summary>
+            应答时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.GprsId">
+            <summary>
+            线路编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.GuideBoard">
+            <summary>
+            路牌
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.TrainNumber">
+            <summary>
+            车次编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.SelfId">
+            <summary>
+            车辆编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.TrafficType">
+            <summary>
+            业务类型
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.DispatchType">
+            <summary>
+            调度类型
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.DriverId">
+            <summary>
+            驾驶员编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.DriverName">
+            <summary>
+            驾驶员姓名
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.AttendantId1">
+            <summary>
+            乘务员1编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.AttendantId2">
+            <summary>
+            乘务员2编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.StartTime">
+            <summary>
+            起始时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.EndTime">
+            <summary>
+            终止时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.StartStationId">
+            <summary>
+            起始站点编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.StartStationName">
+            <summary>
+            起始场站车站名称
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.EndStationId">
+            <summary>
+            终止站点编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.EndStationName">
+            <summary>
+            终止场站车站名称
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.Additional">
+            <summary>
+            附加内容
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B0A">
             <summary>
             升级通知
