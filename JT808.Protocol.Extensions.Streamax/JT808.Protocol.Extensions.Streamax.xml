@@ -634,6 +634,30 @@
             最长1024，对违规信息的文本描述
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B05">
+            <summary>
+            考勤应答
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B05.Response">
+            <summary>
+            业务请求结果
+            1:同意，0:不同意
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B05.Time">
+            <summary>
+            应答时间
+            YYMMDDhhmmss
+            BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B05.Additional">
+            <summary>
+            附加内容
+            可为司机姓名或IC卡号
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B06">
             <summary>
             校时应答
