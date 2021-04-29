@@ -20,7 +20,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         /// <summary>
         /// 流水号
         /// </summary>
-        public byte Serial { get; set; }
+        public ushort Serial { get; set; }
         /// <summary>
         /// 业务请求结果
         /// 1:同意，0:不同意
@@ -107,7 +107,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
             JT808_0x8B09 value = new JT808_0x8B09();
-            value.Serial = reader.ReadByte();
+            value.Serial = reader.ReadUInt16();
             writer.WriteNumber($"[{value.Serial.ReadNumber()}]流水号", value.Serial);
             value.Response = reader.ReadByte();
             writer.WriteNumber($"[{value.Response.ReadNumber()}]业务请求结果", value.Response);
@@ -152,7 +152,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public JT808_0x8B09 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
             JT808_0x8B09 value = new JT808_0x8B09();
-            value.Serial = reader.ReadByte();
+            value.Serial = reader.ReadUInt16();
             value.Response = reader.ReadByte();
             value.Time = reader.ReadDateTime6();
             value.GprsId = reader.ReadUInt32();
@@ -177,7 +177,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
 
         public void Serialize(ref JT808MessagePackWriter writer, JT808_0x8B09 value, IJT808Config config)
         {
-            writer.WriteByte(value.Serial);
+            writer.WriteUInt16(value.Serial);
             writer.WriteByte(value.Response);
             writer.WriteDateTime6(value.Time);
             writer.WriteUInt32(value.GprsId);
