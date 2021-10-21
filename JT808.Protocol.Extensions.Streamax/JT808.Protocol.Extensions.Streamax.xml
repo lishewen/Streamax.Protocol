@@ -99,6 +99,16 @@
             业务类型
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0xE4">
+            <summary>
+            限速值
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0xE4.SpeedLimit">
+            <summary>
+            限速值
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B01">
             <summary>
             运营登记
