@@ -111,7 +111,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteNumber($"[{value.Serial.ReadNumber()}]流水号", value.Serial);
             value.Response = reader.ReadByte();
             writer.WriteNumber($"[{value.Response.ReadNumber()}]业务请求结果", value.Response);
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]应答时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
             value.GprsId = reader.ReadUInt32();
             writer.WriteNumber($"[{value.GprsId.ReadNumber()}]线路编号", value.GprsId);
@@ -133,9 +133,9 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteString($"[Length:{value.AttendantId1.Length}]乘务员1编号", value.AttendantId1);
             value.AttendantId2 = reader.ReadStringEndChar0();
             writer.WriteString($"[Length:{value.AttendantId2.Length}]乘务员2编号", value.AttendantId2);
-            value.StartTime = reader.ReadDateTime6();
+            value.StartTime = reader.ReadDateTime_yyMMddHHmmss();
             writer.WriteString($"[{value.StartTime:yyMMddHHmmss}]起始时间", value.StartTime.ToString("yyyy-MM-dd HH:mm:ss"));
-            value.EndTime = reader.ReadDateTime6();
+            value.EndTime = reader.ReadDateTime_yyMMddHHmmss();
             writer.WriteString($"[{value.EndTime:yyMMddHHmmss}]终止时间", value.EndTime.ToString("yyyy-MM-dd HH:mm:ss"));
             value.StartStationId = reader.ReadUInt32();
             writer.WriteNumber($"[{value.StartStationId.ReadNumber()}]起始站点编号", value.StartStationId);
@@ -154,7 +154,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             JT808_0x8B09 value = new JT808_0x8B09();
             value.Serial = reader.ReadUInt16();
             value.Response = reader.ReadByte();
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             value.GprsId = reader.ReadUInt32();
             value.GuideBoard = reader.ReadStringEndChar0();
             value.TrainNumber = reader.ReadStringEndChar0();
@@ -165,8 +165,8 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             value.DriverName = reader.ReadStringEndChar0();
             value.AttendantId1 = reader.ReadStringEndChar0();
             value.AttendantId2 = reader.ReadStringEndChar0();
-            value.StartTime = reader.ReadDateTime6();
-            value.EndTime = reader.ReadDateTime6();
+            value.StartTime = reader.ReadDateTime_yyMMddHHmmss();
+            value.EndTime = reader.ReadDateTime_yyMMddHHmmss();
             value.StartStationId = reader.ReadUInt32();
             value.StartStationName = reader.ReadStringEndChar0();
             value.EndStationId = reader.ReadUInt32();
@@ -179,7 +179,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         {
             writer.WriteUInt16(value.Serial);
             writer.WriteByte(value.Response);
-            writer.WriteDateTime6(value.Time);
+            writer.WriteDateTime_yyMMddHHmmss(value.Time);
             writer.WriteUInt32(value.GprsId);
             writer.WriteStringEndChar0(value.GuideBoard);
             writer.WriteStringEndChar0(value.TrainNumber);
@@ -190,8 +190,8 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteStringEndChar0(value.DriverName);
             writer.WriteStringEndChar0(value.AttendantId1);
             writer.WriteStringEndChar0(value.AttendantId2);
-            writer.WriteDateTime6(value.StartTime);
-            writer.WriteDateTime6(value.EndTime);
+            writer.WriteDateTime_yyMMddHHmmss(value.StartTime);
+            writer.WriteDateTime_yyMMddHHmmss(value.EndTime);
             writer.WriteUInt32(value.StartStationId);
             writer.WriteStringEndChar0(value.StartStationName);
             writer.WriteUInt32(value.EndStationId);

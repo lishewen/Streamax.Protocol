@@ -100,7 +100,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteNumber($"[{value.Speed.ReadNumber()}]车速", value.Speed);
             value.Direction = reader.ReadUInt16();
             writer.WriteNumber($"[{value.Direction.ReadNumber()}]方向", value.Direction);
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
             value.Reissue = reader.ReadByte();
             writer.WriteNumber($"[{value.Reissue.ReadNumber()}]补发标识", value.Reissue);
@@ -128,7 +128,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             value.Altitude = reader.ReadUInt16();
             value.Speed = reader.ReadUInt16();
             value.Direction = reader.ReadUInt16();
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             value.Reissue = reader.ReadByte();
             value.Additional = reader.ReadRemainStringContent();
             return value;
@@ -145,7 +145,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteUInt16(value.Altitude);
             writer.WriteUInt16(value.Speed);
             writer.WriteUInt16(value.Direction);
-            writer.WriteDateTime6(value.Time);
+            writer.WriteDateTime_yyMMddHHmmss(value.Time);
             writer.WriteByte(value.Reissue);
             writer.WriteString(value.Additional);
         }

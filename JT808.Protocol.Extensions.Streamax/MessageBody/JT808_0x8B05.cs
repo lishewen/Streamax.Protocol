@@ -38,7 +38,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             JT808_0x8B05 value = new JT808_0x8B05();
             value.Response = reader.ReadByte();
             writer.WriteNumber($"[{value.Response.ReadNumber()}]业务请求结果", value.Response);
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]应答时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
             var virtualHex = reader.ReadVirtualArray(reader.ReadCurrentRemainContentLength());
             value.Additional = reader.ReadRemainStringContent();
@@ -49,7 +49,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         {
             JT808_0x8B05 value = new JT808_0x8B05();
             value.Response = reader.ReadByte();
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             value.Additional = reader.ReadRemainStringContent();
             return value;
         }
@@ -57,7 +57,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public void Serialize(ref JT808MessagePackWriter writer, JT808_0x8B05 value, IJT808Config config)
         {
             writer.WriteByte(value.Response);
-            writer.WriteDateTime6(value.Time);
+            writer.WriteDateTime_yyMMddHHmmss(value.Time);
             writer.WriteString(value.Additional);
         }
     }

@@ -102,7 +102,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteNumber($"[{value.Speed.ReadNumber()}]车速", value.Speed);
             value.Direction = reader.ReadUInt16();
             writer.WriteNumber($"[{value.Direction.ReadNumber()}]方向", value.Direction);
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
             value.PersonCount = reader.ReadUInt16();
             writer.WriteNumber($"[{value.PersonCount.ReadNumber()}]当前乘客数", value.PersonCount);
@@ -122,7 +122,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             value.Altitude = reader.ReadUInt16();
             value.Speed = reader.ReadUInt16();
             value.Direction = reader.ReadUInt16();
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             value.PersonCount = reader.ReadUInt16();
             return value;
         }
@@ -140,7 +140,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteUInt16(value.Altitude);
             writer.WriteUInt16(value.Speed);
             writer.WriteUInt16(value.Direction);
-            writer.WriteDateTime6(value.Time);
+            writer.WriteDateTime_yyMMddHHmmss(value.Time);
             writer.WriteUInt16(value.PersonCount);
         }
     }

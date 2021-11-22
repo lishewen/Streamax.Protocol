@@ -29,7 +29,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
             JT808_0x0B07 value = new JT808_0x0B07();
-            value.WorkDate = reader.ReadDateTime3();
+            value.WorkDate = reader.ReadDateTime_YYMMDD();
             writer.WriteString($"[{value.WorkDate:yyMMdd}]营运日期", value.WorkDate.ToString("yy-MM-dd"));
             var length = reader.ReadCurrentRemainContentLength();
             var virtualHex = reader.ReadVirtualArray(length);
@@ -40,7 +40,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public JT808_0x0B07 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
             JT808_0x0B07 value = new JT808_0x0B07();
-            value.WorkDate = reader.ReadDateTime3();
+            value.WorkDate = reader.ReadDateTime_YYMMDD();
             var length = reader.ReadCurrentRemainContentLength();
             value.WorkerId = reader.ReadString(length);
             return value;
@@ -48,7 +48,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
 
         public void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B07 value, IJT808Config config)
         {
-            writer.WriteDateTime3(value.WorkDate);
+            writer.WriteDateTime_YYMMDD(value.WorkDate);
             writer.WriteString(value.WorkerId);
         }
     }

@@ -46,7 +46,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteString($"[{virtualHex.ToArray().ToHexString()}]员工编号", value.WorkerId);
             value.RegistrationType = reader.ReadByte();
             writer.WriteNumber($"[{value.RegistrationType.ReadNumber()}]业务登记类型-{Enum.GetName(typeof(RegistrationType), value.RegistrationType)}", value.RegistrationType);
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
         }
 
@@ -57,7 +57,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             var length = reader.ReadCurrentRemainContentLength() - 7;
             value.WorkerId = reader.ReadString(length);
             value.RegistrationType = reader.ReadByte();
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             return value;
         }
 
@@ -66,7 +66,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteUInt32(value.GprsId);
             writer.WriteString(value.WorkerId);
             writer.WriteByte(value.RegistrationType);
-            writer.WriteDateTime6(value.Time);
+            writer.WriteDateTime_yyMMddHHmmss(value.Time);
         }
     }
 }

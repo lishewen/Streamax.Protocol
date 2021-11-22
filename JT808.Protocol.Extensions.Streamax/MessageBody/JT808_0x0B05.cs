@@ -48,7 +48,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             var virtualHex = reader.ReadVirtualArray(length);
             value.WorkerId = reader.ReadString(length);
             writer.WriteString($"[{virtualHex.ToArray().ToHexString()}]员工编号", value.WorkerId);
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
             value.AttendType = reader.ReadByte();
             writer.WriteNumber($"[{value.AttendType.ReadNumber()}]考勤类型-{Enum.GetName(typeof(AttendType), value.AttendType)}", value.AttendType);
@@ -62,7 +62,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             value.GprsId = reader.ReadUInt32();
             var length = reader.ReadCurrentRemainContentLength() - 8;
             value.WorkerId = reader.ReadString(length);
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             value.AttendType = reader.ReadByte();
             value.AttendanceType = reader.ReadByte();
             return value;
@@ -72,7 +72,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         {
             writer.WriteUInt32(value.GprsId);
             writer.WriteString(value.WorkerId);
-            writer.WriteDateTime6(value.Time);
+            writer.WriteDateTime_yyMMddHHmmss(value.Time);
             writer.WriteByte(value.AttendType);
             writer.WriteByte(value.AttendanceType);
         }

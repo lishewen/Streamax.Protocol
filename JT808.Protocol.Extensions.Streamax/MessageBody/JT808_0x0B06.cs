@@ -25,20 +25,20 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
             JT808_0x0B06 value = new JT808_0x0B06();
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
         }
 
         public JT808_0x0B06 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
             JT808_0x0B06 value = new JT808_0x0B06();
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             return value;
         }
 
         public void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B06 value, IJT808Config config)
         {
-            writer.WriteDateTime6(value.Time);
+            writer.WriteDateTime_yyMMddHHmmss(value.Time);
         }
     }
 }

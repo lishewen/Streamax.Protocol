@@ -43,7 +43,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteNumber($"[{value.GprsId.ReadNumber()}]线路编号", value.GprsId);
             value.UpdateResultCode = reader.ReadByte();
             writer.WriteNumber($"[{value.UpdateResultCode.ReadNumber()}]升级结果代码-{Enum.GetName(typeof(UpdateResultCode), value.UpdateResultCode)}", value.UpdateResultCode);
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
             var virtualHex = reader.ReadVirtualArray(reader.ReadCurrentRemainContentLength());
             value.UpdateFile = reader.ReadRemainStringContent();
@@ -55,7 +55,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             JT808_0x0B0A value = new JT808_0x0B0A();
             value.GprsId = reader.ReadUInt32();
             value.UpdateResultCode = reader.ReadByte();
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             value.UpdateFile = reader.ReadRemainStringContent();
             return value;
         }
@@ -64,7 +64,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         {
             writer.WriteUInt32(value.GprsId);
             writer.WriteByte(value.UpdateResultCode);
-            writer.WriteDateTime6(value.Time);
+            writer.WriteDateTime_yyMMddHHmmss(value.Time);
             writer.WriteString(value.UpdateFile);
         }
     }

@@ -52,7 +52,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteString($"[{virtualHex.ToArray().ToHexString()}]设备版本", value.DeviceVersion);
             value.DeviceErrorCode = reader.ReadByte();
             writer.WriteNumber($"[{value.DeviceErrorCode.ReadNumber()}]故障代码-{Enum.GetName(typeof(DeviceErrorCode), value.DeviceErrorCode)}", value.DeviceErrorCode);
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
         }
 
@@ -64,7 +64,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             var length = reader.ReadCurrentRemainContentLength() - 7;
             value.DeviceVersion = reader.ReadString(length);
             value.DeviceErrorCode = reader.ReadByte();
-            value.Time = reader.ReadDateTime6();
+            value.Time = reader.ReadDateTime_yyMMddHHmmss();
             return value;
         }
 
@@ -74,7 +74,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteByte(value.DeviceAddress);
             writer.WriteString(value.DeviceVersion);
             writer.WriteByte(value.DeviceErrorCode);
-            writer.WriteDateTime6(value.Time);
+            writer.WriteDateTime_yyMMddHHmmss(value.Time);
         }
     }
 }
