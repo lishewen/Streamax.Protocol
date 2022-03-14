@@ -77,6 +77,10 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         /// 当前乘客数
         /// </summary>
         public ushort PersonCount { get; set; }
+        /// <summary>
+        /// 车门数
+        /// </summary>
+        public byte DoorCount { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
             JT808_0x0B02 value = new JT808_0x0B02();
@@ -106,6 +110,8 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
             value.PersonCount = reader.ReadUInt16();
             writer.WriteNumber($"[{value.PersonCount.ReadNumber()}]当前乘客数", value.PersonCount);
+            value.DoorCount = reader.ReadByte();
+            writer.WriteNumber($"[{value.DoorCount.ReadNumber()}]车门数", value.DoorCount);
         }
 
         public JT808_0x0B02 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
@@ -124,6 +130,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             value.Direction = reader.ReadUInt16();
             value.Time = reader.ReadDateTime_yyMMddHHmmss();
             value.PersonCount = reader.ReadUInt16();
+            value.DoorCount = reader.ReadByte();
             return value;
         }
 
@@ -142,6 +149,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteUInt16(value.Direction);
             writer.WriteDateTime_yyMMddHHmmss(value.Time);
             writer.WriteUInt16(value.PersonCount);
+            writer.WriteByte(value.DoorCount);
         }
     }
 }

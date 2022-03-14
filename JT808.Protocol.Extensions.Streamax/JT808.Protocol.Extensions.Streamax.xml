@@ -202,6 +202,11 @@
             当前乘客数
             </summary>
         </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.DoorCount">
+            <summary>
+            车门数
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03">
             <summary>
             进出定点信息上报

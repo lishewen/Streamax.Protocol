@@ -7,6 +7,7 @@ namespace JT808.Protocol.Extensions.Streamax.Enums
     public enum PointType
     {
         到站 = 1,
-        离站 = 2
+        离站 = 2,
+        客流 = 3
     }
 }
