@@ -129,6 +129,26 @@
             到离站信息上报
             </summary>
         </member>
+        <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.PersonItem">
+            <summary>
+            乘客计数项
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.PersonItem.DoorNo">
+            <summary>
+            门编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.PersonItem.UpPersonCount">
+            <summary>
+            上客数
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.PersonItem.DownPersonCount">
+            <summary>
+            下客数
+            </summary>
+        </member>
         <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.GprsId">
             <summary>
             线路编号
@@ -205,6 +225,11 @@
         <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.DoorCount">
             <summary>
             车门数
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.PersonList">
+            <summary>
+            乘客计数项列表
             </summary>
         </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03">

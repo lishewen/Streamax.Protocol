@@ -4,6 +4,7 @@ using JT808.Protocol.Interfaces;
 using JT808.Protocol.MessagePack;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Text.Json;
 
@@ -14,6 +15,25 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// </summary>
     public class JT808_0x0B02 : JT808Bodies, IJT808MessagePackFormatter<JT808_0x0B02>, IJT808Analyze
     {
+        /// <summary>
+        /// 乘客计数项
+        /// </summary>
+        public struct PersonItem
+        {
+            /// <summary>
+            /// 门编号
+            /// </summary>
+            public byte DoorNo { get; set; }
+            /// <summary>
+            /// 上客数
+            /// </summary>
+            public byte UpPersonCount { get; set; }
+            /// <summary>
+            /// 下客数
+            /// </summary>
+            public byte DownPersonCount { get; set; }
+        }
+
         public override ushort MsgId => 0x0B02;
 
         public override string Description => "到离站信息上报";
@@ -81,6 +101,10 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         /// 车门数
         /// </summary>
         public byte DoorCount { get; set; }
+        /// <summary>
+        /// 乘客计数项列表
+        /// </summary>
+        public List<PersonItem> PersonList { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
             JT808_0x0B02 value = new JT808_0x0B02();
@@ -112,6 +136,33 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteNumber($"[{value.PersonCount.ReadNumber()}]当前乘客数", value.PersonCount);
             value.DoorCount = reader.ReadByte();
             writer.WriteNumber($"[{value.DoorCount.ReadNumber()}]车门数", value.DoorCount);
+            if (value.DoorCount > 0)
+            {
+                value.PersonList = new List<PersonItem>();
+                writer.WriteStartArray($"乘客计数项列表");
+                for (int i = 0; i < value.DoorCount; i++)
+                {
+                    var doorno = reader.ReadByte();
+                    if (doorno == 0)
+                        break;
+                    if (value.PersonList.Any(p => p.DoorNo == doorno))
+                        continue;
+
+                    var item = new PersonItem
+                    {
+                        DoorNo = doorno,
+                        UpPersonCount = reader.ReadByte(),
+                        DownPersonCount = reader.ReadByte()
+                    };
+                    writer.WriteStartObject();
+                    writer.WriteNumber($"[{item.DoorNo.ReadNumber()}]门编号", item.DoorNo);
+                    writer.WriteNumber($"[{item.UpPersonCount.ReadNumber()}]上客数", item.UpPersonCount);
+                    writer.WriteNumber($"[{item.DownPersonCount.ReadNumber()}]下客数", item.DownPersonCount);
+                    writer.WriteEndObject();
+                    value.PersonList.Add(item);
+                }
+                writer.WriteEndArray();
+            }
         }
 
         public JT808_0x0B02 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
@@ -131,6 +182,25 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             value.Time = reader.ReadDateTime_yyMMddHHmmss();
             value.PersonCount = reader.ReadUInt16();
             value.DoorCount = reader.ReadByte();
+            if (value.DoorCount > 0)
+            {
+                value.PersonList = new List<PersonItem>();
+                for (int i = 0; i < value.DoorCount; i++)
+                {
+                    var doorno = reader.ReadByte();
+                    if (doorno == 0)
+                        break;
+                    if (value.PersonList.Any(p => p.DoorNo == doorno))
+                        continue;
+
+                    value.PersonList.Add(new PersonItem
+                    {
+                        DoorNo = doorno,
+                        UpPersonCount = reader.ReadByte(),
+                        DownPersonCount = reader.ReadByte()
+                    });
+                }
+            }
             return value;
         }
 
@@ -150,6 +220,12 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteDateTime_yyMMddHHmmss(value.Time);
             writer.WriteUInt16(value.PersonCount);
             writer.WriteByte(value.DoorCount);
+            foreach (var item in value.PersonList)
+            {
+                writer.WriteByte(item.DoorNo);
+                writer.WriteByte(item.UpPersonCount);
+                writer.WriteByte(item.DownPersonCount);
+            }
         }
     }
 }
