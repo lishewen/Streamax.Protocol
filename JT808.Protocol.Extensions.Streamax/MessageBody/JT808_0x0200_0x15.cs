@@ -12,7 +12,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 异常驾驶行为报警详细描述
     /// </summary>
-    public class JT808_0x0200_0x15 : JT808_0x0200_BodyBase, IJT808MessagePackFormatter<JT808_0x0200_0x15>, IJT808Analyze
+    public class JT808_0x0200_0x15 : JT808_0x0200_CustomBodyBase, IJT808MessagePackFormatter<JT808_0x0200_0x15>, IJT808Analyze
     {
         public override byte AttachInfoId { get; set; } = 0x15;
         public override byte AttachInfoLength { get; set; } = 2;

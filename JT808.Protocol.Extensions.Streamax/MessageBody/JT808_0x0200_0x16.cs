@@ -12,7 +12,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 线路编码
     /// </summary>
-    public class JT808_0x0200_0x16 : JT808_0x0200_BodyBase, IJT808MessagePackFormatter<JT808_0x0200_0x16>, IJT808Analyze
+    public class JT808_0x0200_0x16 : JT808_0x0200_CustomBodyBase, IJT808MessagePackFormatter<JT808_0x0200_0x16>, IJT808Analyze
     {
         public override byte AttachInfoId { get; set; } = 0x16;
         public override byte AttachInfoLength { get; set; } = 4;

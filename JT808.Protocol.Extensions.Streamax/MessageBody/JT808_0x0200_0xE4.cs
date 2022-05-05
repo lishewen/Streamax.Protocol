@@ -13,7 +13,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 限速值
     /// </summary>
-    public class JT808_0x0200_0xE4 : JT808_0x0200_BodyBase, IJT808MessagePackFormatter<JT808_0x0200_0xE4>, IJT808Analyze
+    public class JT808_0x0200_0xE4 : JT808_0x0200_CustomBodyBase, IJT808MessagePackFormatter<JT808_0x0200_0xE4>, IJT808Analyze
     {
         public override byte AttachInfoId { get; set; } = 0xE4;
         public override byte AttachInfoLength { get; set; } = 2;

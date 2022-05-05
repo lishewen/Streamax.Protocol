@@ -12,7 +12,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 视频相关报警
     /// </summary>
-    public class JT808_0x0200_0x14 : JT808_0x0200_BodyBase, IJT808MessagePackFormatter<JT808_0x0200_0x14>, IJT808Analyze
+    public class JT808_0x0200_0x14 : JT808_0x0200_CustomBodyBase, IJT808MessagePackFormatter<JT808_0x0200_0x14>, IJT808Analyze
     {
         public override byte AttachInfoId { get; set; } = 0x14;
         public override byte AttachInfoLength { get; set; } = 4;

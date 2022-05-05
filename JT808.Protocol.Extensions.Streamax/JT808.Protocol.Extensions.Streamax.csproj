@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFrameworks>netstandard2.0;netstandard2.1;net5.0;net6.0</TargetFrameworks>
+		<TargetFrameworks>netstandard2.0;netstandard2.1;net6.0</TargetFrameworks>
 		<Copyright>Copyright 算神工作室 2022.</Copyright>
 		<Authors>算神</Authors>
 		<PackageId>JT808.Protocol.Extensions.Streamax</PackageId>
@@ -10,7 +10,7 @@
 		<PackageReleaseNotes>基于JT808协议锐明公交业务扩展部分</PackageReleaseNotes>
 		<RepositoryUrl>https://github.com/lishewen/Streamax.Protocol</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/lishewen/Streamax.Protocol</PackageProjectUrl>
-		<Version>0.3.6</Version>
+		<Version>0.3.7</Version>
 		<licenseUrl>https://github.com/lishewen/Streamax.Protocol/blob/master/LICENSE</licenseUrl>
 		<license>https://github.com/lishewen/Streamax.Protocol/blob/master/LICENSE</license>
 		<DocumentationFile>JT808.Protocol.Extensions.Streamax.xml</DocumentationFile>
@@ -20,7 +20,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="JT808" Version="2.4.5" />
+		<PackageReference Include="JT808" Version="2.4.6" />
 		<None Include="..\readme.md" Pack="true" PackagePath="\" />
 		<None Include="..\LICENSE" Pack="true" PackagePath="\" />
 	</ItemGroup>
