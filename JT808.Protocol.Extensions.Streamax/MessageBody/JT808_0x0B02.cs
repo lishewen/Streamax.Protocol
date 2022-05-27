@@ -78,7 +78,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         /// <summary>
         /// 高程
         /// </summary>
-        public ushort Altitude { get; set; }
+        public short Altitude { get; set; }
         /// <summary>
         /// 车速
         /// </summary>
@@ -124,7 +124,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteNumber($"[{value.Latitude.ReadNumber()}]纬度", value.Latitude);
             value.Longitude = reader.ReadUInt32();
             writer.WriteNumber($"[{value.Longitude.ReadNumber()}]经度", value.Longitude);
-            value.Altitude = reader.ReadUInt16();
+            value.Altitude = reader.ReadInt16();
             writer.WriteNumber($"[{value.Altitude.ReadNumber()}]高程", value.Altitude);
             value.Speed = reader.ReadUInt16();
             writer.WriteNumber($"[{value.Speed.ReadNumber()}]车速", value.Speed);
@@ -147,9 +147,6 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
                         var doorno = reader.ReadByte();
                         if (doorno == 0)
                             break;
-                        if (value.PersonList.Any(p => p.DoorNo == doorno))
-                            continue;
-
 
                         var item = new PersonItem
                         {
@@ -162,7 +159,17 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
                         writer.WriteNumber($"[{item.UpPersonCount.ReadNumber()}]上客数", item.UpPersonCount);
                         writer.WriteNumber($"[{item.DownPersonCount.ReadNumber()}]下客数", item.DownPersonCount);
                         writer.WriteEndObject();
+                        
+                        if (value.PersonList.Any(p => p.DoorNo == doorno))
+                            continue;
+                        
                         value.PersonList.Add(item);
+
+                        if (doorno == 1)
+                        {
+                            reader.ReadByte();
+                            break;
+                        }
                     }
                     catch
                     {
@@ -184,7 +191,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             value.Tag = reader.ReadByte();
             value.Latitude = reader.ReadUInt32();
             value.Longitude = reader.ReadUInt32();
-            value.Altitude = reader.ReadUInt16();
+            value.Altitude = reader.ReadInt16();
             value.Speed = reader.ReadUInt16();
             value.Direction = reader.ReadUInt16();
             value.Time = reader.ReadDateTime_yyMMddHHmmss();
@@ -200,15 +207,24 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
                         var doorno = reader.ReadByte();
                         if (doorno == 0)
                             break;
-                        if (value.PersonList.Any(p => p.DoorNo == doorno))
-                            continue;
 
-                        value.PersonList.Add(new PersonItem
+                        var item = new PersonItem
                         {
                             DoorNo = doorno,
                             UpPersonCount = reader.ReadByte(),
                             DownPersonCount = reader.ReadByte()
-                        });
+                        };
+                        
+                        if (value.PersonList.Any(p => p.DoorNo == doorno))
+                            continue;
+
+                        value.PersonList.Add(item);
+
+                        if (doorno == 1)
+                        {
+                            reader.ReadByte();
+                            break;
+                        }
                     }
                     catch
                     {
@@ -229,7 +245,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteByte(value.Tag);
             writer.WriteUInt32(value.Latitude);
             writer.WriteUInt32(value.Longitude);
-            writer.WriteUInt16(value.Altitude);
+            writer.WriteInt16(value.Altitude);
             writer.WriteUInt16(value.Speed);
             writer.WriteUInt16(value.Direction);
             writer.WriteDateTime_yyMMddHHmmss(value.Time);
