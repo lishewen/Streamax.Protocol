@@ -148,18 +148,25 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
                     if (value.PersonList.Any(p => p.DoorNo == doorno))
                         continue;
 
-                    var item = new PersonItem
+                    try
                     {
-                        DoorNo = doorno,
-                        UpPersonCount = reader.ReadByte(),
-                        DownPersonCount = reader.ReadByte()
-                    };
-                    writer.WriteStartObject();
-                    writer.WriteNumber($"[{item.DoorNo.ReadNumber()}]门编号", item.DoorNo);
-                    writer.WriteNumber($"[{item.UpPersonCount.ReadNumber()}]上客数", item.UpPersonCount);
-                    writer.WriteNumber($"[{item.DownPersonCount.ReadNumber()}]下客数", item.DownPersonCount);
-                    writer.WriteEndObject();
-                    value.PersonList.Add(item);
+                        var item = new PersonItem
+                        {
+                            DoorNo = doorno,
+                            UpPersonCount = reader.ReadByte(),
+                            DownPersonCount = reader.ReadByte()
+                        };
+                        writer.WriteStartObject();
+                        writer.WriteNumber($"[{item.DoorNo.ReadNumber()}]门编号", item.DoorNo);
+                        writer.WriteNumber($"[{item.UpPersonCount.ReadNumber()}]上客数", item.UpPersonCount);
+                        writer.WriteNumber($"[{item.DownPersonCount.ReadNumber()}]下客数", item.DownPersonCount);
+                        writer.WriteEndObject();
+                        value.PersonList.Add(item);
+                    }
+                    catch
+                    {
+                        break;
+                    }
                 }
                 writer.WriteEndArray();
             }
@@ -192,13 +199,19 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
                         break;
                     if (value.PersonList.Any(p => p.DoorNo == doorno))
                         continue;
-
-                    value.PersonList.Add(new PersonItem
+                    try
                     {
-                        DoorNo = doorno,
-                        UpPersonCount = reader.ReadByte(),
-                        DownPersonCount = reader.ReadByte()
-                    });
+                        value.PersonList.Add(new PersonItem
+                        {
+                            DoorNo = doorno,
+                            UpPersonCount = reader.ReadByte(),
+                            DownPersonCount = reader.ReadByte()
+                        });
+                    }
+                    catch
+                    {
+                        break;
+                    }
                 }
             }
             return value;
