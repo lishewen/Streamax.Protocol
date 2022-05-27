@@ -142,14 +142,15 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
                 writer.WriteStartArray($"乘客计数项列表");
                 for (int i = 0; i < value.DoorCount; i++)
                 {
-                    var doorno = reader.ReadByte();
-                    if (doorno == 0)
-                        break;
-                    if (value.PersonList.Any(p => p.DoorNo == doorno))
-                        continue;
-
                     try
                     {
+                        var doorno = reader.ReadByte();
+                        if (doorno == 0)
+                            break;
+                        if (value.PersonList.Any(p => p.DoorNo == doorno))
+                            continue;
+
+
                         var item = new PersonItem
                         {
                             DoorNo = doorno,
@@ -194,13 +195,14 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
                 value.PersonList = new List<PersonItem>();
                 for (int i = 0; i < value.DoorCount; i++)
                 {
-                    var doorno = reader.ReadByte();
-                    if (doorno == 0)
-                        break;
-                    if (value.PersonList.Any(p => p.DoorNo == doorno))
-                        continue;
                     try
                     {
+                        var doorno = reader.ReadByte();
+                        if (doorno == 0)
+                            break;
+                        if (value.PersonList.Any(p => p.DoorNo == doorno))
+                            continue;
+
                         value.PersonList.Add(new PersonItem
                         {
                             DoorNo = doorno,
