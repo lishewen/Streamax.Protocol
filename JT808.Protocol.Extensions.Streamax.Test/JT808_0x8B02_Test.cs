@@ -20,5 +20,25 @@ namespace JT808.Protocol.Extensions.Streamax.Test
         {
             var json = JT808Serializer.Analyze("7E8B020006000000000115F484000000000200E97E".ToHexBytes());
         }
+        [Fact]
+        public void Hex()
+        {
+            JT808Package jt808_0x8B02 = new()
+            {
+                Header = new()
+                {
+                    MsgId = 0x8B02.ToUInt16Value(),
+                    ManualMsgNum = 10,
+                    TerminalPhoneNo = "00000009999"
+                },
+                Bodies = new JT808_0x8B02()
+                {
+                    GprsId = 0,
+                    TrafficType = 2,
+                    Additional = string.Empty
+                }
+            };
+            var hex = JT808Serializer.Serialize(jt808_0x8B02).ToHexString();
+        }
     }
 }

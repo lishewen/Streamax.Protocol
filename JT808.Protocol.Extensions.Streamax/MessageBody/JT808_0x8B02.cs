@@ -38,7 +38,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             value.TrafficType = reader.ReadByte();
             writer.WriteNumber($"[{value.TrafficType.ReadNumber()}]业务类型-{Enum.GetName(typeof(TrafficType), value.TrafficType)}", value.TrafficType);
             var virtualHex = reader.ReadVirtualArray(reader.ReadCurrentRemainContentLength());
-            value.Additional = reader.ReadRemainStringContent();
+            value.Additional = reader.ReadStringEndChar0();
             writer.WriteString($"[{virtualHex.ToArray().ToHexString()}]附加内容", value.Additional);
         }
 
@@ -47,7 +47,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             JT808_0x8B02 value = new JT808_0x8B02();
             value.GprsId = reader.ReadUInt32();
             value.TrafficType = reader.ReadByte();
-            value.Additional = reader.ReadRemainStringContent();
+            value.Additional = reader.ReadStringEndChar0();
             return value;
         }
 
@@ -55,7 +55,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         {
             writer.WriteUInt32(value.GprsId);
             writer.WriteByte(value.TrafficType);
-            writer.WriteString(value.Additional);
+            writer.WriteStringEndChar0(value.Additional);
         }
     }
 }
