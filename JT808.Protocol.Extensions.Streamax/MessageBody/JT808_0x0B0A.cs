@@ -12,11 +12,11 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 升级结果上报
     /// </summary>
-    public class JT808_0x0B0A : JT808Bodies, IJT808MessagePackFormatter<JT808_0x0B0A>, IJT808Analyze
+    public class JT808_0x0B0A : JT808MessagePackFormatter<JT808_0x0B0A>, JT808Bodies, IJT808Analyze
     {
-        public override ushort MsgId => 0x0B0A;
+        public ushort MsgId => 0x0B0A;
 
-        public override string Description => "升级结果上报";
+        public string Description => "升级结果上报";
         /// <summary>
         /// 线路编号
         /// </summary>
@@ -38,7 +38,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public string UpdateFile { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
-            JT808_0x0B0A value = new JT808_0x0B0A();
+            JT808_0x0B0A value = new();
             value.GprsId = reader.ReadUInt32();
             writer.WriteNumber($"[{value.GprsId.ReadNumber()}]线路编号", value.GprsId);
             value.UpdateResultCode = reader.ReadByte();
@@ -50,9 +50,9 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteString($"[{virtualHex.ToArray().ToHexString()}]升级文件", value.UpdateFile);
         }
 
-        public JT808_0x0B0A Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
+        public override JT808_0x0B0A Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
-            JT808_0x0B0A value = new JT808_0x0B0A();
+            JT808_0x0B0A value = new();
             value.GprsId = reader.ReadUInt32();
             value.UpdateResultCode = reader.ReadByte();
             value.Time = reader.ReadDateTime_yyMMddHHmmss();
@@ -60,7 +60,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             return value;
         }
 
-        public void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B0A value, IJT808Config config)
+        public override void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B0A value, IJT808Config config)
         {
             writer.WriteUInt32(value.GprsId);
             writer.WriteByte(value.UpdateResultCode);

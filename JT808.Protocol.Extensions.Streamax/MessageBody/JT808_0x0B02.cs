@@ -13,7 +13,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 到离站信息上报
     /// </summary>
-    public class JT808_0x0B02 : JT808Bodies, IJT808MessagePackFormatter<JT808_0x0B02>, IJT808Analyze
+    public class JT808_0x0B02 : JT808MessagePackFormatter<JT808_0x0B02>, JT808Bodies, IJT808Analyze
     {
         /// <summary>
         /// 乘客计数项
@@ -34,9 +34,9 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             public byte DownPersonCount { get; set; }
         }
 
-        public override ushort MsgId => 0x0B02;
+        public ushort MsgId => 0x0B02;
 
-        public override string Description => "到离站信息上报";
+        public string Description => "到离站信息上报";
         /// <summary>
         /// 线路编号
         /// </summary>
@@ -107,7 +107,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public List<PersonItem> PersonList { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
-            JT808_0x0B02 value = new JT808_0x0B02();
+            JT808_0x0B02 value = new();
             value.GprsId = reader.ReadUInt32();
             writer.WriteNumber($"[{value.GprsId.ReadNumber()}]线路编号", value.GprsId);
             value.PointType = reader.ReadByte();
@@ -159,10 +159,10 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
                         writer.WriteNumber($"[{item.UpPersonCount.ReadNumber()}]上客数", item.UpPersonCount);
                         writer.WriteNumber($"[{item.DownPersonCount.ReadNumber()}]下客数", item.DownPersonCount);
                         writer.WriteEndObject();
-                        
+
                         if (value.PersonList.Any(p => p.DoorNo == doorno))
                             continue;
-                        
+
                         value.PersonList.Add(item);
 
                         if (doorno == 1)
@@ -180,9 +180,9 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             }
         }
 
-        public JT808_0x0B02 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
+        public override JT808_0x0B02 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
-            JT808_0x0B02 value = new JT808_0x0B02();
+            JT808_0x0B02 value = new();
             value.GprsId = reader.ReadUInt32();
             value.PointType = reader.ReadByte();
             value.TrafficType = reader.ReadByte();
@@ -214,7 +214,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
                             UpPersonCount = reader.ReadByte(),
                             DownPersonCount = reader.ReadByte()
                         };
-                        
+
                         if (value.PersonList.Any(p => p.DoorNo == doorno))
                             continue;
 
@@ -235,7 +235,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             return value;
         }
 
-        public void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B02 value, IJT808Config config)
+        public override void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B02 value, IJT808Config config)
         {
             writer.WriteUInt32(value.GprsId);
             writer.WriteByte(value.PointType);

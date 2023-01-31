@@ -12,17 +12,17 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 线路编码
     /// </summary>
-    public class JT808_0x0200_0x16 : JT808_0x0200_CustomBodyBase, IJT808MessagePackFormatter<JT808_0x0200_0x16>, IJT808Analyze
+    public class JT808_0x0200_0x16 : JT808MessagePackFormatter<JT808_0x0200_0x16>, JT808_0x0200_CustomBodyBase, IJT808Analyze
     {
-        public override byte AttachInfoId { get; set; } = 0x16;
-        public override byte AttachInfoLength { get; set; } = 4;
+        public byte AttachInfoId { get; set; } = 0x16;
+        public byte AttachInfoLength { get; set; } = 4;
         /// <summary>
         /// 线路编号
         /// </summary>
         public uint GprsId { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
-            JT808_0x0200_0x16 value = new JT808_0x0200_0x16();
+            JT808_0x0200_0x16 value = new();
             value.AttachInfoId = reader.ReadByte();
             writer.WriteNumber($"[{value.AttachInfoId.ReadNumber()}]附加信息Id", value.AttachInfoId);
             value.AttachInfoLength = reader.ReadByte();
@@ -31,16 +31,16 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteNumber($"[{value.GprsId.ReadNumber()}]线路编号", value.GprsId);
         }
 
-        public JT808_0x0200_0x16 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
+        public override JT808_0x0200_0x16 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
-            JT808_0x0200_0x16 value = new JT808_0x0200_0x16();
+            JT808_0x0200_0x16 value = new();
             value.AttachInfoId = reader.ReadByte();
             value.AttachInfoLength = reader.ReadByte();
             value.GprsId = reader.ReadUInt32();
             return value;
         }
 
-        public void Serialize(ref JT808MessagePackWriter writer, JT808_0x0200_0x16 value, IJT808Config config)
+        public override void Serialize(ref JT808MessagePackWriter writer, JT808_0x0200_0x16 value, IJT808Config config)
         {
             writer.WriteByte(value.AttachInfoId);
             writer.WriteByte(value.AttachInfoLength);

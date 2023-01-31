@@ -11,11 +11,11 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 校时请求
     /// </summary>
-    public class JT808_0x0B06 : JT808Bodies, IJT808MessagePackFormatter<JT808_0x0B06>, IJT808Analyze
+    public class JT808_0x0B06 : JT808MessagePackFormatter<JT808_0x0B06>, JT808Bodies, IJT808Analyze
     {
-        public override ushort MsgId => 0x0B06;
+        public ushort MsgId => 0x0B06;
 
-        public override string Description => "校时请求";
+        public string Description => "校时请求";
         /// <summary>
         /// 时间
         /// YYMMDDhhmmss
@@ -24,19 +24,19 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public DateTime Time { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
-            JT808_0x0B06 value = new JT808_0x0B06();
+            JT808_0x0B06 value = new();
             value.Time = reader.ReadDateTime_yyMMddHHmmss();
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
         }
 
-        public JT808_0x0B06 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
+        public override JT808_0x0B06 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
-            JT808_0x0B06 value = new JT808_0x0B06();
+            JT808_0x0B06 value = new();
             value.Time = reader.ReadDateTime_yyMMddHHmmss();
             return value;
         }
 
-        public void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B06 value, IJT808Config config)
+        public override void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B06 value, IJT808Config config)
         {
             writer.WriteDateTime_yyMMddHHmmss(value.Time);
         }

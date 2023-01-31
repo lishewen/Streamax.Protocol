@@ -12,11 +12,11 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 违规信息上报
     /// </summary>
-    public class JT808_0x0B04 : JT808Bodies, IJT808MessagePackFormatter<JT808_0x0B04>, IJT808Analyze
+    public class JT808_0x0B04 : JT808MessagePackFormatter<JT808_0x0B04>, JT808Bodies, IJT808Analyze
     {
-        public override ushort MsgId => 0x0B04;
+        public ushort MsgId => 0x0B04;
 
-        public override string Description => "违规信息上报";
+        public string Description => "违规信息上报";
         /// <summary>
         /// 线路编号
         /// </summary>
@@ -73,7 +73,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public string Additional { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
-            JT808_0x0B04 value = new JT808_0x0B04();
+            JT808_0x0B04 value = new();
             value.GprsId = reader.ReadUInt32();
             writer.WriteNumber($"[{value.GprsId.ReadNumber()}]线路编号", value.GprsId);
             value.ViolationType = reader.ReadByte();
@@ -109,9 +109,9 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteString($"[{virtualHex.ToArray().ToHexString()}]附加内容", value.Additional);
         }
 
-        public JT808_0x0B04 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
+        public override JT808_0x0B04 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
-            JT808_0x0B04 value = new JT808_0x0B04();
+            JT808_0x0B04 value = new();
             value.GprsId = reader.ReadUInt32();
             value.ViolationType = reader.ReadByte();
             if (value.ViolationType >= 0x01 && value.ViolationType <= 0x0A)
@@ -134,7 +134,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             return value;
         }
 
-        public void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B04 value, IJT808Config config)
+        public override void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B04 value, IJT808Config config)
         {
             writer.WriteUInt32(value.GprsId);
             writer.WriteByte(value.ViolationType);

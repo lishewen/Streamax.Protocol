@@ -12,10 +12,10 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 异常驾驶行为报警详细描述
     /// </summary>
-    public class JT808_0x0200_0x15 : JT808_0x0200_CustomBodyBase, IJT808MessagePackFormatter<JT808_0x0200_0x15>, IJT808Analyze
+    public class JT808_0x0200_0x15 : JT808MessagePackFormatter<JT808_0x0200_0x15>, JT808_0x0200_CustomBodyBase, IJT808Analyze
     {
-        public override byte AttachInfoId { get; set; } = 0x15;
-        public override byte AttachInfoLength { get; set; } = 2;
+        public byte AttachInfoId { get; set; } = 0x15;
+        public byte AttachInfoLength { get; set; } = 2;
         /// <summary>
         /// 异常驾驶行为类型
         /// 按位设置：0表示不具备，1表示具备
@@ -31,7 +31,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public byte Fatigue { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
-            JT808_0x0200_0x15 value = new JT808_0x0200_0x15();
+            JT808_0x0200_0x15 value = new();
             value.AttachInfoId = reader.ReadByte();
             writer.WriteNumber($"[{value.AttachInfoId.ReadNumber()}]附加信息Id", value.AttachInfoId);
             value.AttachInfoLength = reader.ReadByte();
@@ -47,9 +47,9 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteNumber($"[{value.Fatigue.ReadNumber()}]疲劳程度", value.Fatigue);
         }
 
-        public JT808_0x0200_0x15 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
+        public override JT808_0x0200_0x15 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
-            JT808_0x0200_0x15 value = new JT808_0x0200_0x15();
+            JT808_0x0200_0x15 value = new();
             value.AttachInfoId = reader.ReadByte();
             value.AttachInfoLength = reader.ReadByte();
             value.ExceptionType = reader.ReadByte();
@@ -57,7 +57,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             return value;
         }
 
-        public void Serialize(ref JT808MessagePackWriter writer, JT808_0x0200_0x15 value, IJT808Config config)
+        public override void Serialize(ref JT808MessagePackWriter writer, JT808_0x0200_0x15 value, IJT808Config config)
         {
             writer.WriteByte(value.AttachInfoId);
             writer.WriteByte(value.AttachInfoLength);

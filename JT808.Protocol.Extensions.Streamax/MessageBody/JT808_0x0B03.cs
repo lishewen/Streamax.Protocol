@@ -12,11 +12,11 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 进出定点信息上报
     /// </summary>
-    public class JT808_0x0B03 : JT808Bodies, IJT808MessagePackFormatter<JT808_0x0B03>, IJT808Analyze
+    public class JT808_0x0B03 : JT808MessagePackFormatter<JT808_0x0B03>, JT808Bodies, IJT808Analyze
     {
-        public override ushort MsgId => 0x0B03;
+        public ushort MsgId => 0x0B03;
 
-        public override string Description => "进出定点信息上报";
+        public string Description => "进出定点信息上报";
         /// <summary>
         /// 线路编号
         /// </summary>
@@ -76,7 +76,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public byte FixedPointType { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
-            JT808_0x0B03 value = new JT808_0x0B03();
+            JT808_0x0B03 value = new();
             value.GprsId = reader.ReadUInt32();
             writer.WriteNumber($"[{value.GprsId.ReadNumber()}]线路编号", value.GprsId);
             value.IOType = reader.ReadByte();
@@ -103,9 +103,9 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteNumber($"[{value.FixedPointType.ReadNumber()}]定点类型-{Enum.GetName(typeof(FixedPointType), value.FixedPointType)}", value.FixedPointType);
         }
 
-        public JT808_0x0B03 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
+        public override JT808_0x0B03 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
-            JT808_0x0B03 value = new JT808_0x0B03();
+            JT808_0x0B03 value = new();
             value.GprsId = reader.ReadUInt32();
             value.IOType = reader.ReadByte();
             value.TrafficType = reader.ReadByte();
@@ -121,7 +121,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             return value;
         }
 
-        public void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B03 value, IJT808Config config)
+        public override void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B03 value, IJT808Config config)
         {
             writer.WriteUInt32(value.GprsId);
             writer.WriteByte(value.IOType);

@@ -12,11 +12,11 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 升级通知
     /// </summary>
-    public class JT808_0x8B0A : JT808Bodies, IJT808MessagePackFormatter<JT808_0x8B0A>, IJT808Analyze
+    public class JT808_0x8B0A : JT808MessagePackFormatter<JT808_0x8B0A>, JT808Bodies, IJT808Analyze
     {
-        public override ushort MsgId => 0x8B0A;
+        public ushort MsgId => 0x8B0A;
 
-        public override string Description => "升级通知";
+        public string Description => "升级通知";
         /// <summary>
         /// IP地址
         /// </summary>
@@ -35,7 +35,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public string Password { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
-            JT808_0x8B0A value = new JT808_0x8B0A();
+            JT808_0x8B0A value = new();
             value.IPAddress = reader.ReadStringEndChar0();
             writer.WriteString($"[Length:{value.IPAddress.Length}]IP地址", value.IPAddress);
             value.Port = reader.ReadUInt16();
@@ -46,9 +46,9 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteString($"[Length:{value.Password.Length}]密码", value.Password);
         }
 
-        public JT808_0x8B0A Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
+        public override JT808_0x8B0A Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
-            JT808_0x8B0A value = new JT808_0x8B0A();
+            JT808_0x8B0A value = new();
             value.IPAddress = reader.ReadStringEndChar0();
             value.Port = reader.ReadUInt16();
             value.UserName = reader.ReadStringEndChar0();
@@ -56,7 +56,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             return value;
         }
 
-        public void Serialize(ref JT808MessagePackWriter writer, JT808_0x8B0A value, IJT808Config config)
+        public override void Serialize(ref JT808MessagePackWriter writer, JT808_0x8B0A value, IJT808Config config)
         {
             writer.WriteStringEndChar0(value.IPAddress);
             writer.WriteUInt16(value.Port);

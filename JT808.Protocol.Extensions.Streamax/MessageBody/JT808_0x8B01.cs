@@ -12,11 +12,11 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 发车通知
     /// </summary>
-    public class JT808_0x8B01 : JT808Bodies, IJT808MessagePackFormatter<JT808_0x8B01>, IJT808Analyze
+    public class JT808_0x8B01 : JT808MessagePackFormatter<JT808_0x8B01>, JT808Bodies, IJT808Analyze
     {
-        public override ushort MsgId => 0x8B01;
+        public ushort MsgId => 0x8B01;
 
-        public override string Description => "发车通知";
+        public string Description => "发车通知";
         /// <summary>
         /// 线路编号
         /// </summary>
@@ -97,7 +97,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public DateTime Time { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
-            JT808_0x8B01 value = new JT808_0x8B01();
+            JT808_0x8B01 value = new();
             value.GprsId = reader.ReadUInt32();
             writer.WriteNumber($"[{value.GprsId.ReadNumber()}]线路编号", value.GprsId);
             value.GuideBoard = reader.ReadStringEndChar0();
@@ -136,9 +136,9 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteString($"[{value.Time:yyMMddHHmmss}]发送通知的时间", value.Time.ToString("yyyy-MM-dd HH:mm:ss"));
         }
 
-        public JT808_0x8B01 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
+        public override JT808_0x8B01 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
-            JT808_0x8B01 value = new JT808_0x8B01();
+            JT808_0x8B01 value = new();
             value.GprsId = reader.ReadUInt32();
             value.GuideBoard = reader.ReadStringEndChar0();
             value.TrainNumber = reader.ReadStringEndChar0();
@@ -160,7 +160,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             return value;
         }
 
-        public void Serialize(ref JT808MessagePackWriter writer, JT808_0x8B01 value, IJT808Config config)
+        public override void Serialize(ref JT808MessagePackWriter writer, JT808_0x8B01 value, IJT808Config config)
         {
             writer.WriteUInt32(value.GprsId);
             writer.WriteStringEndChar0(value.GuideBoard);

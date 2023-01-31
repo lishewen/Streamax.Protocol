@@ -13,17 +13,17 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 业务类型
     /// </summary>
-    public class JT808_0x0200_0x17 : JT808_0x0200_CustomBodyBase, IJT808MessagePackFormatter<JT808_0x0200_0x17>, IJT808Analyze
+    public class JT808_0x0200_0x17 : JT808MessagePackFormatter<JT808_0x0200_0x17>, JT808_0x0200_CustomBodyBase, IJT808Analyze
     {
-        public override byte AttachInfoId { get; set; } = 0x17;
-        public override byte AttachInfoLength { get; set; } = 1;
+        public byte AttachInfoId { get; set; } = 0x17;
+        public byte AttachInfoLength { get; set; } = 1;
         /// <summary>
         /// 业务类型
         /// </summary>
         public byte TrafficType { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
-            JT808_0x0200_0x17 value = new JT808_0x0200_0x17();
+            JT808_0x0200_0x17 value = new();
             value.AttachInfoId = reader.ReadByte();
             writer.WriteNumber($"[{value.AttachInfoId.ReadNumber()}]附加信息Id", value.AttachInfoId);
             value.AttachInfoLength = reader.ReadByte();
@@ -32,16 +32,16 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteNumber($"[{value.TrafficType.ReadNumber()}]业务类型-{Enum.GetName(typeof(TrafficType), value.TrafficType)}", value.TrafficType);
         }
 
-        public JT808_0x0200_0x17 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
+        public override JT808_0x0200_0x17 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
-            JT808_0x0200_0x17 value = new JT808_0x0200_0x17();
+            JT808_0x0200_0x17 value = new();
             value.AttachInfoId = reader.ReadByte();
             value.AttachInfoLength = reader.ReadByte();
             value.TrafficType = reader.ReadByte();
             return value;
         }
 
-        public void Serialize(ref JT808MessagePackWriter writer, JT808_0x0200_0x17 value, IJT808Config config)
+        public override void Serialize(ref JT808MessagePackWriter writer, JT808_0x0200_0x17 value, IJT808Config config)
         {
             writer.WriteByte(value.AttachInfoId);
             writer.WriteByte(value.AttachInfoLength);

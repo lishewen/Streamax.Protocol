@@ -12,11 +12,11 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 考勤应答
     /// </summary>
-    public class JT808_0x8B05 : JT808Bodies, IJT808MessagePackFormatter<JT808_0x8B05>, IJT808Analyze
+    public class JT808_0x8B05 : JT808MessagePackFormatter<JT808_0x8B05>, JT808Bodies, IJT808Analyze
     {
-        public override ushort MsgId => 0x8B05;
+        public ushort MsgId => 0x8B05;
 
-        public override string Description => "考勤应答";
+        public string Description => "考勤应答";
         /// <summary>
         /// 业务请求结果
         /// 1:同意，0:不同意
@@ -35,7 +35,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public string Additional { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
-            JT808_0x8B05 value = new JT808_0x8B05();
+            JT808_0x8B05 value = new();
             value.Response = reader.ReadByte();
             writer.WriteNumber($"[{value.Response.ReadNumber()}]业务请求结果", value.Response);
             value.Time = reader.ReadDateTime_yyMMddHHmmss();
@@ -45,16 +45,16 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteString($"[{virtualHex.ToArray().ToHexString()}]附加内容", value.Additional);
         }
 
-        public JT808_0x8B05 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
+        public override JT808_0x8B05 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
-            JT808_0x8B05 value = new JT808_0x8B05();
+            JT808_0x8B05 value = new();
             value.Response = reader.ReadByte();
             value.Time = reader.ReadDateTime_yyMMddHHmmss();
             value.Additional = reader.ReadRemainStringContent();
             return value;
         }
 
-        public void Serialize(ref JT808MessagePackWriter writer, JT808_0x8B05 value, IJT808Config config)
+        public override void Serialize(ref JT808MessagePackWriter writer, JT808_0x8B05 value, IJT808Config config)
         {
             writer.WriteByte(value.Response);
             writer.WriteDateTime_yyMMddHHmmss(value.Time);

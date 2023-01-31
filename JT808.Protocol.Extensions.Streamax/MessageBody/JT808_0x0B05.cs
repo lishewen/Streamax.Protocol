@@ -12,11 +12,11 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
     /// <summary>
     /// 考勤
     /// </summary>
-    public class JT808_0x0B05 : JT808Bodies, IJT808MessagePackFormatter<JT808_0x0B05>, IJT808Analyze
+    public class JT808_0x0B05 : JT808MessagePackFormatter<JT808_0x0B05>, JT808Bodies, IJT808Analyze
     {
-        public override ushort MsgId => 0x0B05;
+        public ushort MsgId => 0x0B05;
 
-        public override string Description => "考勤";
+        public string Description => "考勤";
         /// <summary>
         /// 线路编号
         /// </summary>
@@ -41,7 +41,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         public byte AttendanceType { get; set; }
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
-            JT808_0x0B05 value = new JT808_0x0B05();
+            JT808_0x0B05 value = new();
             value.GprsId = reader.ReadUInt32();
             writer.WriteNumber($"[{value.GprsId.ReadNumber()}]线路编号", value.GprsId);
             var length = reader.ReadCurrentRemainContentLength() - 8;
@@ -56,9 +56,9 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             writer.WriteNumber($"[{value.AttendanceType.ReadNumber()}]考勤方式-{Enum.GetName(typeof(AttendanceType), value.AttendanceType)}", value.AttendanceType);
         }
 
-        public JT808_0x0B05 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
+        public override JT808_0x0B05 Deserialize(ref JT808MessagePackReader reader, IJT808Config config)
         {
-            JT808_0x0B05 value = new JT808_0x0B05();
+            JT808_0x0B05 value = new();
             value.GprsId = reader.ReadUInt32();
             var length = reader.ReadCurrentRemainContentLength() - 8;
             value.WorkerId = reader.ReadString(length);
@@ -68,7 +68,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             return value;
         }
 
-        public void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B05 value, IJT808Config config)
+        public override void Serialize(ref JT808MessagePackWriter writer, JT808_0x0B05 value, IJT808Config config)
         {
             writer.WriteUInt32(value.GprsId);
             writer.WriteString(value.WorkerId);
