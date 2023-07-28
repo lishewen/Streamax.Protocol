@@ -104,6 +104,11 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         /// 附加内容
         /// </summary>
         public string Additional { get; set; }
+        /// <summary>
+        /// 跳过数据体序列化
+        /// </summary>
+        public bool SkipSerialization => false;
+
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
             JT808_0x8B09 value = new();

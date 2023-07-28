@@ -39,6 +39,11 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         /// 考勤方式
         /// </summary>
         public byte AttendanceType { get; set; }
+        /// <summary>
+        /// 跳过数据体序列化
+        /// </summary>
+        public bool SkipSerialization => false;
+
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
             JT808_0x0B05 value = new();

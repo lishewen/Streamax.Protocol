@@ -33,6 +33,11 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         /// 密码
         /// </summary>
         public string Password { get; set; }
+        /// <summary>
+        /// 跳过数据体序列化
+        /// </summary>
+        public bool SkipSerialization => false;
+
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
             JT808_0x8B0A value = new();

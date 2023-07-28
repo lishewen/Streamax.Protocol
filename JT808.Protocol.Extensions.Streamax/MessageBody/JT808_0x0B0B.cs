@@ -39,6 +39,11 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         /// BCD[6]
         /// </summary>
         public DateTime Time { get; set; }
+        /// <summary>
+        /// 跳过数据体序列化
+        /// </summary>
+        public bool SkipSerialization => false;
+
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
             JT808_0x0B0B value = new();

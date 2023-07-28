@@ -124,6 +124,11 @@
             员工编号
             </summary>
         </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B01.SkipSerialization">
+            <summary>
+            跳过数据体序列化
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02">
             <summary>
             到离站信息上报
@@ -232,6 +237,11 @@
             乘客计数项列表
             </summary>
         </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B02.SkipSerialization">
+            <summary>
+            跳过数据体序列化
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03">
             <summary>
             进出定点信息上报
@@ -306,6 +316,11 @@
             定点类型
             </summary>
         </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B03.SkipSerialization">
+            <summary>
+            跳过数据体序列化
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04">
             <summary>
             违规信息上报
@@ -377,6 +392,11 @@
             最长1024，对违规信息的文本描述
             </summary>
         </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B04.SkipSerialization">
+            <summary>
+            跳过数据体序列化
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B05">
             <summary>
             考勤
@@ -409,6 +429,11 @@
             考勤方式
             </summary>
         </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B05.SkipSerialization">
+            <summary>
+            跳过数据体序列化
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B06">
             <summary>
             校时请求
@@ -419,6 +444,11 @@
             时间
             YYMMDDhhmmss
             BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B06.SkipSerialization">
+            <summary>
+            跳过数据体序列化
             </summary>
         </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B07">
@@ -436,6 +466,11 @@
         <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B07.WorkerId">
             <summary>
             员工编号
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B07.SkipSerialization">
+            <summary>
+            跳过数据体序列化
             </summary>
         </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B08">
@@ -465,6 +500,11 @@
             BCD[6]
             </summary>
         </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B08.SkipSerialization">
+            <summary>
+            跳过数据体序列化
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B09">
             <summary>
             业务请求
@@ -490,6 +530,11 @@
             时间
             YYMMDDhhmmss
             BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B09.SkipSerialization">
+            <summary>
+            跳过数据体序列化
             </summary>
         </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0A">
@@ -518,6 +563,11 @@
             <summary>
             升级文件
             最长1024
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0A.SkipSerialization">
+            <summary>
+            跳过数据体序列化
             </summary>
         </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0B">
@@ -550,6 +600,11 @@
             时间
             YYMMDDhhmmss
             BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0B0B.SkipSerialization">
+            <summary>
+            跳过数据体序列化
             </summary>
         </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01">
@@ -653,6 +708,11 @@
             BCD[6]
             </summary>
         </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B01.SkipSerialization">
+            <summary>
+            跳过数据体序列化
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B02">
             <summary>
             业务变更指令
@@ -672,6 +732,11 @@
             <summary>
             附加内容
             最长1024，对违规信息的文本描述
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B02.SkipSerialization">
+            <summary>
+            跳过数据体序列化
             </summary>
         </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B05">
@@ -698,6 +763,11 @@
             可为司机姓名或IC卡号
             </summary>
         </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B05.SkipSerialization">
+            <summary>
+            跳过数据体序列化
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B06">
             <summary>
             校时应答
@@ -708,6 +778,11 @@
             时间
             YYMMDDhhmmss
             BCD[6]
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B06.SkipSerialization">
+            <summary>
+            跳过数据体序列化
             </summary>
         </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09">
@@ -822,6 +897,11 @@
             附加内容
             </summary>
         </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B09.SkipSerialization">
+            <summary>
+            跳过数据体序列化
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B0A">
             <summary>
             升级通知
@@ -845,6 +925,11 @@
         <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B0A.Password">
             <summary>
             密码
+            </summary>
+        </member>
+        <member name="P:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x8B0A.SkipSerialization">
+            <summary>
+            跳过数据体序列化
             </summary>
         </member>
     </members>

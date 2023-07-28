@@ -10,7 +10,7 @@
 		<PackageReleaseNotes>基于JT808协议锐明公交业务扩展部分</PackageReleaseNotes>
 		<RepositoryUrl>https://github.com/lishewen/Streamax.Protocol</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/lishewen/Streamax.Protocol</PackageProjectUrl>
-		<Version>0.4.6</Version>
+		<Version>0.4.7</Version>
 		<licenseUrl>https://github.com/lishewen/Streamax.Protocol/blob/master/LICENSE</licenseUrl>
 		<license>https://github.com/lishewen/Streamax.Protocol/blob/master/LICENSE</license>
 		<DocumentationFile>JT808.Protocol.Extensions.Streamax.xml</DocumentationFile>
@@ -20,8 +20,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="JT808" Version="2.6.1" />
-		<PackageReference Include="JT808.Protocol.DependencyInjection" Version="2.6.1" />
+		<PackageReference Include="JT808" Version="2.6.2" />
 		<None Include="..\readme.md" Pack="true" PackagePath="\" />
 		<None Include="..\LICENSE" Pack="true" PackagePath="\" />
 	</ItemGroup>

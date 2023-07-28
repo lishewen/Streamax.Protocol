@@ -10,7 +10,7 @@ namespace JT808.Protocol.Extensions.Streamax.Test
         JT808Serializer JT808Serializer;
         public JT808_0x0200_Test()
         {
-            ServiceCollection serviceDescriptors = new ServiceCollection();
+            ServiceCollection serviceDescriptors = new();
             serviceDescriptors.AddJT808Configure().AddStreamaxConfigure();
             IJT808Config jT808Config = serviceDescriptors.BuildServiceProvider().GetRequiredService<IJT808Config>();
             JT808Serializer = new JT808Serializer(jT808Config);

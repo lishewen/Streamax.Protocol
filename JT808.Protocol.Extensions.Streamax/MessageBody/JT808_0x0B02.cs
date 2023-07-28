@@ -105,6 +105,11 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         /// 乘客计数项列表
         /// </summary>
         public List<PersonItem> PersonList { get; set; }
+        /// <summary>
+        /// 跳过数据体序列化
+        /// </summary>
+        public bool SkipSerialization => false;
+
         public void Analyze(ref JT808MessagePackReader reader, Utf8JsonWriter writer, IJT808Config config)
         {
             JT808_0x0B02 value = new();
