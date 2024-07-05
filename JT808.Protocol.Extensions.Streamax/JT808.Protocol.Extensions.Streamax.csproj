@@ -2,7 +2,8 @@
 
 	<PropertyGroup>
 		<TargetFrameworks>net7.0;net8.0</TargetFrameworks>
-		<Copyright>Copyright 算神工作室 2023.</Copyright>
+		<Copyright>Copyright 算神工作室 2024.</Copyright>
+		<PackageTags>JT808,Streamax,Protocol,Extensions</PackageTags>
 		<Authors>算神</Authors>
 		<PackageId>JT808.Protocol.Extensions.Streamax</PackageId>
 		<Product>JT808.Protocol.Extensions.Streamax</Product>
@@ -10,7 +11,7 @@
 		<PackageReleaseNotes>基于JT808协议锐明公交业务扩展部分</PackageReleaseNotes>
 		<RepositoryUrl>https://github.com/lishewen/Streamax.Protocol</RepositoryUrl>
 		<PackageProjectUrl>https://github.com/lishewen/Streamax.Protocol</PackageProjectUrl>
-		<Version>0.5.0</Version>
+		<Version>0.5.1</Version>
 		<licenseUrl>https://github.com/lishewen/Streamax.Protocol/blob/master/LICENSE</licenseUrl>
 		<license>https://github.com/lishewen/Streamax.Protocol/blob/master/LICENSE</license>
 		<DocumentationFile>JT808.Protocol.Extensions.Streamax.xml</DocumentationFile>
@@ -20,7 +21,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="JT808" Version="2.6.5" />
+		<PackageReference Include="JT808" Version="2.6.7" />
 		<None Include="..\readme.md" Pack="true" PackagePath="\" />
 		<None Include="..\LICENSE" Pack="true" PackagePath="\" />
 	</ItemGroup>
