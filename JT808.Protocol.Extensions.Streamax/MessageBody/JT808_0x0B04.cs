@@ -119,7 +119,7 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
             JT808_0x0B04 value = new();
             value.GprsId = reader.ReadUInt32();
             value.ViolationType = reader.ReadByte();
-            if (value.ViolationType >= 0x01 && value.ViolationType <= 0x0A)
+            if ((value.ViolationType >= 0x01 && value.ViolationType <= 0x0A) || value.ViolationType == 0x0D)
             {
                 value.ViolationValue = reader.ReadUInt16();
                 value.ViolationStandard = reader.ReadUInt16();
@@ -143,8 +143,15 @@ namespace JT808.Protocol.Extensions.Streamax.MessageBody
         {
             writer.WriteUInt32(value.GprsId);
             writer.WriteByte(value.ViolationType);
-            writer.WriteUInt16(value.ViolationValue);
-            writer.WriteUInt16(value.ViolationStandard);
+            if ((value.ViolationType >= 0x01 && value.ViolationType <= 0x0A) || value.ViolationType == 0x0D)
+            {
+                writer.WriteUInt16(value.ViolationValue);
+                writer.WriteUInt16(value.ViolationStandard);
+            }
+            else if (value.ViolationType == 0x0C)
+            {
+                writer.WriteUInt16(value.ViolationValue);
+            }
             writer.WriteUInt32(value.Latitude);
             writer.WriteUInt32(value.Longitude);
             writer.WriteUInt16(value.Altitude);

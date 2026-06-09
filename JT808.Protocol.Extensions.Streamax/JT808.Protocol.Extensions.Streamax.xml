@@ -49,6 +49,106 @@
             到离站信息上报
             </summary>
         </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0B03">
+            <summary>
+            进出定点信息上报
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0B04">
+            <summary>
+            违规信息上报
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0B05">
+            <summary>
+            考勤
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0B06">
+            <summary>
+            校时请求
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0B07">
+            <summary>
+            行车计划请求
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0B08">
+            <summary>
+            业务登记
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0B09">
+            <summary>
+            业务请求
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0B0A">
+            <summary>
+            升级结果上报
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0B0B">
+            <summary>
+            设备故障上报
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x8B01">
+            <summary>
+            发车通知
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x8B02">
+            <summary>
+            业务变更指令
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x8B05">
+            <summary>
+            考勤应答
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x8B06">
+            <summary>
+            校时应答
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x8B09">
+            <summary>
+            业务请求应答
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x8B0A">
+            <summary>
+            升级通知
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0200_0x14">
+            <summary>
+            视频相关报警
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0200_0x15">
+            <summary>
+            异常驾驶行为报警详细描述
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0200_0x16">
+            <summary>
+            线路编码
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0200_0x17">
+            <summary>
+            业务类型
+            </summary>
+        </member>
+        <member name="F:JT808.Protocol.Extensions.Streamax.JT808_Streamax_Constants.JT808_0x0200_0xE4">
+            <summary>
+            限速值
+            </summary>
+        </member>
         <member name="T:JT808.Protocol.Extensions.Streamax.MessageBody.JT808_0x0200_0x14">
             <summary>
             视频相关报警
